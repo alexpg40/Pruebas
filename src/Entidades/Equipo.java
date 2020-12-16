@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class Equipo {
     
+    private int id;
     private String nombre;
     private String estadio;
     
@@ -45,7 +46,15 @@ public class Equipo {
     public void setEstadio(String estadio) {
         this.estadio = estadio;
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public Equipo nuevoEquipos(){
         Equipo e = new Equipo();
         System.out.println("¿Cuantos equipos quieres introducir?");
@@ -53,6 +62,7 @@ public class Equipo {
         sc = new Scanner(System.in);
         int n = sc.nextInt();
         for(;n > 0;n--){
+            e.setId(n);
             System.out.println("¿Como se llama el equipo?");
             sc = new Scanner(System.in);
             String enombre = sc.nextLine();
