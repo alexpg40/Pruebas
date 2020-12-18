@@ -13,17 +13,20 @@ import java.util.Scanner;
  */
 public class Usuario {
 
+    private int id;
     private String nombre;
     private String contraseña;
-    private String sexo;
+    private char sexo;
 
     public Usuario() {
 
     }
 
-    public Usuario(String nombre, String contraseña) {
+    public Usuario(int id, String nombre, String contraseña, char sexo) {
+        this.id = id;
         this.nombre = nombre;
         this.contraseña = contraseña;
+        this.sexo = sexo;
     }
 
     public Usuario(Usuario u) {
@@ -47,12 +50,20 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public String getSexo() {
+    public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Usuario registrarUsuario() {
@@ -73,12 +84,12 @@ public class Usuario {
                 case 1:
                     System.out.println("Has elegido el sexo masculio");
                     sx = "Masculino";
-                    u.setSexo("Masculino");
+                    u.setSexo('M');
                     break;
                 case 2:
                     System.out.println("Has elegido el sexo femenino");
                     sx = "Femenino";
-                    u.setSexo("Femenino");
+                    u.setSexo('F');
                     break;
                 default:
                     System.out.println("Debe introducir el sexo");
