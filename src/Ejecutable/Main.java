@@ -6,29 +6,35 @@
 package Ejecutable;
 
 import Entidades.Usuario;
+import Entidades.Utilidades;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Usuario u = new Usuario();
-        u.registrarUsuario();
-        Usuario a = new Usuario();
+        Usuario[] usuarios = Utilidades.USUARIOS;
+        boolean cond = false;
 
-        String usuarios[][] = new String[10][2];
-        usuarios[6][0] = "A";
-        usuarios[6][1] = "123";
-
-        System.out.println("Introduzca su Usuario para iniciar sesion");
-        Scanner in = new Scanner(System.in);
-        String nombre = in.nextLine();
-        System.out.println("Introduzca su contraseña");
-        String pass = in.nextLine();
-        for (int i = 0; i < usuarios.length; i++) {
-            if (nombre.equals(usuarios[i][0]) && pass.equals(usuarios[i][1])) {
+        do {
+            Usuario u = new Usuario();
+            System.out.println("Introduzca su Usuario para iniciar sesion");
+            Scanner in = new Scanner(System.in);
+            String nombre = in.nextLine();
+            System.out.println("Introduzca su contraseña");
+            String pass = in.nextLine();
+            for (Usuario usuario : usuarios) {
+                u = usuario;
+                if (pass.equals(u.getContraseña()) && nombre.equals(u.getNombre())) {
+                    cond = true;
+                }
+            }
+            if (!cond) {
+                System.out.println("Tu usuario y contraseña es/son incorrectas");
+            }
+            if (cond) {
                 System.out.println("Has iniciado sesion");
             }
-        }
+        } while (!cond);
     }
 }
