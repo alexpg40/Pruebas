@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Clasificacion {
     
+    //ssaD
     private ArrayList<Equipo> equipos = new ArrayList<>();
     private ArrayList<Puntuacion> puntuacion = new ArrayList<>();
     private ArrayList<Gol> goles = new ArrayList<>();
